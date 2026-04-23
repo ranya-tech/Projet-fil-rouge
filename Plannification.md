@@ -47,3 +47,10 @@ Sécurisation :
 Protection SQL Injection.
 
 Validation des formulaires.
+
+### Phase 5 : Tests & Déploiement (1 semaine)
+Tests des fonctionnalités.
+
+Correction des bugs.
+
+Optimisation du site.
