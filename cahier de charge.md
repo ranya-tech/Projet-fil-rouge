@@ -2,7 +2,7 @@
 
 ### Présentation du Projet:
 
-**Objectif :** Créer une plateforme en ligne pour la vente de smartphones, de tablettes et d'accessoires.
+**Objectif :** Créer une plateforme en ligne pour la vente de smartphones, et d'accessoires.
 **Services :** Exposition des produits, vente en ligne, gestion des commandes et des stocks.
 
 ### Besoins Fonctionnels:
