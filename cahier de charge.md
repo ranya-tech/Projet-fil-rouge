@@ -8,6 +8,9 @@ Le manque de centralisation des informations et l’utilisation de processus man
 L’objectif principal de ce projet est de développer une application web e-commerce centralisée, intuitive et sécurisée, visant à :
 *Optimiser la gestion commerciale* en automatisant le tunnel d'achat et le traitement des commandes.
 
+**Objectif :** Créer une plateforme en ligne pour la vente de smartphones, et d'accessoires.
+**Services :** Exposition des produits, vente en ligne, gestion des commandes et des stocks.
+
 *Faciliter la gestion des stocks* grâce à un suivi en temps réel et des alertes automatisées pour éviter les ruptures de flux.
 
 *Assurer une expérience utilisateur fluide* et moderne sur tous les types d'écrans (Desktop et Mobile) pour maximiser les taux de conversion.
