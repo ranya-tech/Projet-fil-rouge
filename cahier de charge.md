@@ -1,37 +1,81 @@
-# **Cahier de charge: Magasin de téléphones.**
+# **Cahier de charge: Application E-Commerce pour un Magasin de Téléphones et Accessoires.**
 
-### Présentation du Projet:
+### 1_Contexte du Projet:
+Le marché des smartphones, tablettes et accessoires mobiles est en constante évolution, exigeant une forte réactivité commerciale. De nombreux points de vente physiques de téléphonie rencontrent des difficultés majeures dans la gestion quotidienne de leurs activités commerciales et logistiques.
 
-**Objectif :** Créer une plateforme en ligne pour la vente de smartphones, de tablettes et d'accessoires.
-**Services :** Exposition des produits, vente en ligne, gestion des commandes et des stocks.
+Le manque de centralisation des informations et l’utilisation de processus manuels ou d'outils génériques non connectés (comme des fichiers Excel isolés) compliquent considérablement le suivi des stocks et le traitement des commandes. Par ailleurs, l’absence d’une vitrine numérique performante limite la visibilité du magasin aux seuls clients de proximité et freine son expansion. Ces lacunes nuisent non seulement à la productivité de l'équipe commerciale, mais impactent également l’expérience d'achat globale du client.
+**2_Objectifs du projet:** 
+L’objectif principal de ce projet est de développer une application web e-commerce centralisée, intuitive et sécurisée, visant à :
+*Optimiser la gestion commerciale* en automatisant le tunnel d'achat et le traitement des commandes.
 
-### Besoins Fonctionnels:
+*Faciliter la gestion des stocks* grâce à un suivi en temps réel et des alertes automatisées pour éviter les ruptures de flux.
 
-##### Espace Client: 
-**Page d'accueil :** Affichage d'un slider pour les derniers smartphones et des sections de promotions.
+*Assurer une expérience utilisateur fluide* et moderne sur tous les types d'écrans (Desktop et Mobile) pour maximiser les taux de conversion.
 
-**Catalogue de produits :** Classification des téléphones par marque (Samsung, Apple, Xiaomi...) ou par système d'exploitation (Android, iOS).
+*Offrir une plateforme d'administration robuste* permettant de piloter l'activité commerciale à l'aide d'indicateurs de performance précis.
 
-**Détails du produit :** Il est essentiel d'afficher (Images, Fiche technique, État, Couleurs disponibles.)
+### 3_Fonctionnalités Principales:
 
-**Panier d'achat :** Ajouter des téléphones et des accessoires, et calculer le montant total.
+##### 1.Espace Client: 
+**.Page d'accueil :** 
+Mise en avant des nouveautés et des produits phares via un slider interactif (ex. : derniers smartphones haut de gamme).
 
-**Système de commande :** Un formulaire où le client renseigne son nom, son numéro de téléphone et son adresse de livraison.
+Sections dédiées aux promotions, ventes flash et suggestions d'accessoires.
 
-##### Espace admin: 
-**Gestion des produits :** Ajouter un nouveau téléphone, modifier le prix ou supprimer un produit.
+**.Catalogue de produits :** 
+Classification claire et intuitive des produits par marque (Samsung, Apple, Xiaomi, etc.) ou par système d'exploitation (Android, iOS).
 
-**Gestion du stock :** Alerter l'administrateur en cas de stock faible (ex: il ne reste que 2 unités d'iPhone 15).
+Système de filtrage et de tri (nouveautés, popularité).
 
-**Gestion des commandes :** C'est ici qu'on accède à la section "Consulter les demandes" :
-Visualiser la liste des nouvelles commandes.
-Modifier le statut de la commande (En attente, Expédiée, Livrée).
+**.Détails du produit :** 
+Images haute définition du produit et leur prix.
 
-**Statistiques :** Suivi des ventes (par jour, par mois) et identification des marques les plus demandées.
+Fiche technique complète (processeur, mémoire RAM, stockage, capacité de batterie, appareil photo).
+
+Indicateur de l'état du produit et sélection des variantes (couleurs disponibles, capacité de stockage).
+
+**.Panier d'achat :** 
+Ajout rapide de smartphones ou accessoires depuis le catalogue ou la fiche produit.
+
+Modification des quantités en temps réel et calcul automatique du montant total.
+
+**.Système de commande :** 
+Formulaire d'achat simplifié permettant au client de renseigner ses informations de livraison : nom complet, numéro de téléphone valide et adresse exacte de livraison.
+
+##### 2.Espace admin: 
+**.Gestion des produits :** 
+Interface permettant d'ajouter un nouveau téléphone ou accessoire, de modifier les caractéristiques et les prix, ou de désactiver/supprimer un produit du catalogue.
+
+**.Gestion du stock :** 
+Suivi automatique des unités disponibles à chaque commande validée.
+
+Système d'alerte visuelle sur le tableau de bord en cas de stock faible (ex. : alerte dès qu'il ne reste que 2 unités d'un modèle spécifique comme l'iPhone 15).
+
+**.Gestion des commandes :** 
+Accès à la section centralisée "Consulter les demandes" pour visualiser l'historique complet et les nouvelles commandes arrivantes.
+
+Mise à jour des statuts de livraison via un menu déroulant : En attente, Expédiée, Livrée.
+
+**.Statistiques :** 
+Tableau de bord présentant le suivi des ventes (chiffre d'affaires par jour, par mois).
+
+Analyses graphiques identifiant les marques et les modèles les plus demandés afin d'adapter la stratégie d'approvisionnement.
+
+### 4_Les Acteurs:
+**Client (Visiteur/Acheteur) :**
+Parcourt le catalogue, consulte les fiches techniques, compose son panier et valide sa commande via le formulaire dédié.
+
+**Administrateur (Gérant du magasin) :**
+Supervise l'intégralité du système.
+Contrôle le catalogue, ajuste les prix, gère le niveau des stocks, traite les commandes des clients et analyse les rapports de vente.
+
+### 5_Charte Graphique:
+
+**5.1 Logo** 
+
 
 ### Contraintes Techniques:
-HTML,JavaScript,CSS et PHP
-
-MYSQL (PDO)
-
-Responsive(desktop + mobile);
+**Backend**: PHP.
+**Frontend** : HTML5, CSS3, JavaScript.
+**Base de Données** : MySQL.  
+**Outils Annexes** : Figma , Git / GitHub, API.
