@@ -72,14 +72,38 @@ Contrôle le catalogue, ajuste les prix, gère le niveau des stocks, traite les 
 ### 5_Charte Graphique:
 
 **5.1 Logo** 
+Le logo a été conçu pour refléter les valeurs essentielles de notre application e-commerce de téléphones et accessoires. Il représente :
+----
+![Logo SmartPhone](Logo.png)
+
+
+Une icône de smartphone stylisée : Représentée par des contours épurés avec un bouton principal, elle définit immédiatement le secteur d'activité de l'application (la téléphonie et le matériel mobile).
+
+Une ligne d’onde ECG (pulsation) : Située au cœur de l'écran du téléphone, elle symbolise la réactivité, le dynamisme du marché technologique, mais aussi la vitalité et la connexion constante.
+
+La typographie « SmartPhone » : Écrite avec une police moderne et sans empattement, elle marque une séparation visuelle claire :
+
+Smart : En rouge, pour évoquer l'énergie, l'innovation et l'intelligence technologique.
+
+Phone : En blanc/clair, pour apporter de la clarté, de la lisibilité et de la simplicité.
+
+Les couleurs utilisées renforcent cette symbolique :
+
+Le noir (#000000) et le fond sombre : Expriment le haut de gamme, le professionnalisme, l’élégance et la modernité. Il rappelle le design des écrans OLED et des appareils technologiques premium.
+
+Le rouge (#BA1A1A) : Apporte de l’énergie, de la passion et de la créativité. Dans le contexte e-commerce, il attire l'attention, stimule l'action d'achat (les boutons d'action, les promotions) et souligne l’aspect dynamique de la gestion des stocks et des ventes.
+
+Le blanc (#FCF8FA) : Offre un contraste parfait, symbolisant la clarté de l'interface, la transparence des transactions et la simplicité du parcours client (tunnel d'achat épuré).
+
+Ce logo incarne notre engagement : fournir une solution e-commerce complète, moderne et performante qui facilite la gestion commerciale et logistique pour le gérant, tout en offrant une expérience d'achat fluide, intuitive et centrée sur l'utilisateur.
 
 **5.2 Typographie**
 	Police principale : inter (Regular, Medium, Bold selon les besoins).
 
 **5.3	Palette de Couleurs**
-    Primaire: #F2F5F9 (bleu clair).
-    Secondaire: :  #0078BB (bleu vif),   #98a3a9 (gris). 
-	Background: #98a3a9 (gris).
+    Primaire: #0000(noire).
+    Secondaire: :  #BA1A1A (rouge),   #0051D5 (blue). 
+	Background: #FCF8FA (blanc).
 ### Contraintes Techniques:
 **Backend**: PHP.
 **Frontend** : HTML5, CSS3, JavaScript.
