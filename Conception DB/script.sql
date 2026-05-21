@@ -1,11 +1,11 @@
-CREATE DATABASE e_commerce;
-USE e_commerce;
+CREATE DATABASE smartphone_store;
+USE smartphone_store;
+
 CREATE TABLE Client(
     idClient INT AUTO_INCREMENT PRIMARY KEY,
-    prenom VARCHAR(50) NOT NULL,
-    nom VARCHAR(50) NOT NULL,
-    telephone VARCHAR(20),
-    adresse TEXT
+    nom_complet VARCHAR(100) NOT NULL,
+    telephone VARCHAR(20) NOT NULL,
+    adresse TEXT NOT NULL
 )
 CREATE TABLE Produit(
     idProduit INT AUTO_INCREMENT PRIMARY KEY,
