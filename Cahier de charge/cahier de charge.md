@@ -5,6 +5,7 @@
 Le marché des smartphones, tablettes et accessoires mobiles est en constante évolution, exigeant une forte réactivité commerciale. De nombreux points de vente physiques de téléphonie rencontrent des difficultés majeures dans la gestion quotidienne de leurs activités commerciales et logistiques.
 
 Le manque de centralisation des informations et l’utilisation de processus manuels ou d'outils génériques non connectés (comme des fichiers Excel isolés) compliquent considérablement le suivi des stocks et le traitement des commandes. Par ailleurs, l’absence d’une vitrine numérique performante limite la visibilité du magasin aux seuls clients de proximité et freine son expansion. Ces lacunes nuisent non seulement à la productivité de l'équipe commerciale, mais impactent également l’expérience d'achat globale du client.
+
 ----------------------------------------------------------
 
 **2_Objectifs du projet:** 
@@ -16,6 +17,7 @@ L’objectif principal de ce projet est de développer une application web e-com
 *Assurer une expérience utilisateur fluide* et moderne sur tous les types d'écrans (Desktop et Mobile) pour maximiser les taux de conversion.
 
 *Offrir une plateforme d'administration robuste* permettant de piloter l'activité commerciale à l'aide d'indicateurs de performance précis.
+
 ----------------------------------------------------------
 
 ### 3_Fonctionnalités Principales:
@@ -64,6 +66,7 @@ Mise à jour des statuts de livraison via un menu déroulant : En attente, Expé
 Tableau de bord présentant le suivi des ventes (chiffre d'affaires par jour, par mois).
 
 Analyses graphiques identifiant les marques et les modèles les plus demandés afin d'adapter la stratégie d'approvisionnement.
+
 ----------------------------------------------------------
 
 ### 4_Les Acteurs:
@@ -73,6 +76,7 @@ Parcourt le catalogue, consulte les fiches techniques, compose son panier et val
 **Administrateur (Gérant du magasin) :**
 Supervise l'intégralité du système.
 Contrôle le catalogue, ajuste les prix, gère le niveau des stocks, traite les commandes des clients et analyse les rapports de vente.
+
 ----------------------------------------------------------
 
 ### 5_Charte Graphique:
