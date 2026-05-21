@@ -114,6 +114,7 @@ Ce logo incarne notre engagement : fournir une solution e-commerce complète, mo
     Primaire: #0000(noire).
     Secondaire: :  #BA1A1A (rouge),   #0051D5 (blue). 
 	Background: #FCF8FA (blanc).
+    
 ----------------------------------------------------------
 ### Contraintes Techniques:
 **Backend**: PHP.
