@@ -1,0 +1,1 @@
+https://www.figma.com/design/Ri1jsKt10N7mxOZsAuNy2K/SmartPhone-Desktop-?node-id=0-1&t=N2z6GDUxWGUzQAHP-1

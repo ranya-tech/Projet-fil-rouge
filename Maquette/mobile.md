@@ -1,0 +1,1 @@
+https://www.figma.com/design/pslvUXKzg4XgDUJ0KI59aD/SmartPhone-Mobile-?node-id=0-1&t=G0zO6fJ27VZezrE5-1
