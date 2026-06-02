@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="category.css">
+    <link rel="stylesheet" href="style_cat.css">
 </head>
 <body>
     <header>
@@ -13,27 +13,83 @@
             <a href="">Accueil</a>
             <a href="">Categorie</a>
             <a href="">Accessoires</a>
-            <a href=""><img src="asset/shopping-cart.png" alt="Panier" width="16">Panier</a>
-            <a href="">Profil</a>
+            <a href=""><img src="asset/panier.png" alt="Panier" width="14">Panier</a>
+            <button>Connexion</button>
         </nav>
     </header>
     <main>
         <form method="get">
-            <button>Phones</button>
-            <button>Accessoires</button>
-            <input type="text" name="" placeholder="Recherche...">
-            Sort by:
-            <select name="" id="">
-                <option value="">Nouveaux</option>
-                <option value="">Populaire</option>
-            </select>
+            <div class="filter">
+                <div class="buttons">
+                    <button class="btn-category active">Phones</button>
+                    <button class="btn-category">Accessoirs</button>
+                </div>
+            
+                <div class="search">
+                    <span class="search-icon"><img src="asset/Search.png" width="19"></span>
+                    <input type="text" placeholder="Recherche...">
+                </div>
+            
+                <div class="sort">
+                    <label for="sort-select">Sort by:</label>
+                    <select id="sort-select">
+                        <option>Newest Arrivals</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
         </form>
         <div class="cards">
-            
+            <div class="card">
+                <img src="asset/galaxy Z flip.jpg" alt="" width="300">
+                <p></p>
+                <h3></h3>
+                <a href="">Voir Plus</a>
+            </div>
+            <div class="card">
+                <img src="asset/iphone.png" alt="" width="300">
+                <p></p>
+                <h3></h3>
+                <a href="">Voir Plus</a>
+            </div>
+            <div class="card">
+                <img src="asset/galaxy A55µ.jpg" alt="" width="300">
+                <p></p>
+                <h3></h3>
+                <a href="">Voir Plus</a>
+            </div> 
+            <div class="card">
+                <img src="asset/galaxy Z flip.jpg" alt="" width="300">
+                <p></p>
+                <h3></h3>
+                <a href="">Voir Plus</a>
+            </div>
+            <div class="card">
+                <img src="asset/iphone.png" alt="" width="300">
+                <p></p>
+                <h3></h3>
+                <a href="">Voir Plus</a>
+            </div>
+            <div class="card">
+                <img src="asset/galaxy A55µ.jpg" alt="" width="300">
+                <p></p>
+                <h3></h3>
+                <a href="">Voir Plus</a>
+            </div> 
         </div>
     </main>
     <footer>
-
+        <div class="footer-container">
+            <img src="asset/Logo.png" alt="Smartphone">
+            <a href="">Accueil</a>
+            <a href="">Categories</a>
+            <a href="">Connexion</a>
+            <img src="asset/facebook.png" alt="Facebook" width="40">
+            <img src="asset/insta.png" alt="Instagram" width="40">
+            <img src="asset/twiter.png" alt="Twitter" width="40">
+        </div>
+        <p>&copy; 2026 Smartphone. All rights reserved.</p>
     </footer>
 </body>
 </html>
