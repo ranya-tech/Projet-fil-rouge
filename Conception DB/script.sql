@@ -42,6 +42,6 @@ CREATE TABLE ProduitCmd(
     idPhones INT NOT NULL, 
     idCommande INT NOT NULL,
     quantite INT NOT NULL DEFAULT 1,
-    FOREIGN KEY (idPhones) REFERENCES Phones(idPhones),
+    FOREIGN KEY (idPhones) REFERENCES Phones(idPhone),
     FOREIGN KEY (idCommande) REFERENCES Commande(idCommande)
 );
