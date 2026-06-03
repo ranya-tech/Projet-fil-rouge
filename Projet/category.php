@@ -18,6 +18,7 @@
         </nav>
     </header>
     <main>
+        <!-- if(isset($_GET[''])) -->
         <form method="get">
             <div class="filter">
                 <div class="buttons">
@@ -41,10 +42,12 @@
             </div>
         </form>
         <div class="cards">
+            <!-- foreach($produits as produit) -->
             <div class="card">
                 <img src="asset/galaxy Z flip.jpg" alt="" width="300">
                 <p></p>
                 <h3></h3>
+                <!-- if(isset($_POST[''])header('Location')) -->
                 <a href="">Voir Plus</a>
             </div>
             <div class="card">

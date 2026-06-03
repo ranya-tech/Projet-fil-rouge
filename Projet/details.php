@@ -19,7 +19,7 @@
     </header>
     <main>
         <a href="category.html">Retour</a>
-        <!-- Need code PHP -->
+        <!-- Need code PHP to show detail of one product -->
     </main>
     <footer>
         <div class="footer-container">

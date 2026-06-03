@@ -11,10 +11,10 @@
         <div class="head">
             <img src="asset/Logo.png" alt="Smartphone">
             <nav>
-                <a href="Accueil.html">Accueil</a>
-                <a href="">Téléphones</a>
-                <a href="">Accessoires</a>
-                <a href=""><img src="asset/panier.png" alt="Panier" width="14"> Panier</a>
+                <a href="Accueil.php">Accueil</a>
+                <a href="category.php">Téléphones</a>
+                <a href="category.php">Accessoires</a>
+                <a href="panier.php"><img src="asset/panier.png" alt="Panier" width="14"> Panier</a>
                 <button>Connexion</button>
             </nav>
         </div>
@@ -44,6 +44,7 @@
             </div> 
         </div>
         <div class="most_selling">
+            <!-- foreach code php -->
             <p>Les Plus Vendus</p>
             <div class="card">
                 <img src="asset/galaxy Z flip.jpg" alt="" width="300">
