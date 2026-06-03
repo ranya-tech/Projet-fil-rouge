@@ -112,7 +112,7 @@ Ce logo incarne notre engagement : fournir une solution e-commerce complète, mo
 
 **5.3	Palette de Couleurs**
     Primaire: #0000(noire).
-    Secondaire: :  #BA1A1A (rouge),   #0051D5 (blue). 
+    Secondaire: :  #BA1A1A (rouge),   #45464D (Grey). 
 	Background: #FCF8FA (blanc).
     
 ----------------------------------------------------------
