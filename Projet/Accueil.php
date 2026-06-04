@@ -1,3 +1,7 @@
+<?php
+require 'config.php';
+$sql = ""
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +16,7 @@
             <img src="asset/Logo.png" alt="Smartphone">
             <nav>
                 <a href="Accueil.php">Accueil</a>
-                <a href="category.php">Téléphones</a>
-                <a href="category.php">Accessoires</a>
+                <a href="category.php">Categorie</a>
                 <a href="panier.php"><img src="asset/panier.png" alt="Panier" width="14"> Panier</a>
                 <button>Connexion</button>
             </nav>
@@ -32,15 +35,15 @@
         <div class="event">
             <div class="card">
                 <img src="asset/modele.png" alt="" width="300">
-                <a href="">Voir Plus</a>
+                <a href="category.php">Voir Plus</a>
             </div>
             <div class="card">
                 <img src="asset/promo.jpg" alt="" width="300">
-                <a href="">Voir Plus</a>
+                <a href="category.php">Voir Plus</a>
             </div>
             <div class="card">
                 <img src="asset/accessoires.jpg" alt="" width="300">
-                <a href="">Voir Plus</a>
+                <a href="category.php">Voir Plus</a>
             </div> 
         </div>
         <div class="most_selling">

@@ -10,10 +10,9 @@
     <header>
         <img src="asset/Logo.png" alt="Smartphone">
         <nav>
-            <a href="">Accueil</a>
-            <a href="">Categorie</a>
-            <a href="">Accessoires</a>
-            <a href=""><img src="asset/panier.png" alt="Panier" width="16">Panier</a>
+            <a href="Accueil.php">Accueil</a>
+            <a href="category.php">Categorie</a>
+            <a href="panier.php"><img src="asset/panier.png" alt="Panier" width="16">Panier</a>
             <button>Connexion</button>
         </nav>
     </header>

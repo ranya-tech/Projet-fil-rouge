@@ -1,3 +1,20 @@
+<?php
+require 'config.php';
+$sql = 'SELECT * FROM Phones';
+$stmt = $pdo->query($sql);
+$produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//to affiche phones or accessoires
+if (isset($_GET['filtre'])) {
+    $categorie = $_GET['filtre'];
+    $sql = "SELECT * FROM Phones WHERE categorie = :categorie";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        'categorie' => $categorie
+    ]);
+}
+
+$produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,28 +27,26 @@
     <header>
         <img src="asset/Logo.png" alt="Logo">
         <nav>
-            <a href="">Accueil</a>
-            <a href="">Categorie</a>
-            <a href="">Accessoires</a>
-            <a href=""><img src="asset/panier.png" alt="Panier" width="14">Panier</a>
+            <a href="Accueil.php">Accueil</a>
+            <a href="category.php">Categorie</a>
+            <a href="panier.php"><img src="asset/panier.png" alt="Panier" width="14">Panier</a>
             <button>Connexion</button>
         </nav>
     </header>
     <main>
-        <!-- if(isset($_GET[''])) -->
         <form method="get">
-            <div class="filter">
-                <div class="buttons">
-                    <button class="btn-category active">Phones</button>
-                    <button class="btn-category">Accessoirs</button>
+            <div class="filtrer">
+                <div class="buttons" name="filtre">
+                    <button class="btn" name="phones">Phones</button>
+                    <button class="btn" name="accessoirs">Accessoirs</button>
                 </div>
             
-                <div class="search">
+                <div class="search" name="search">
                     <span class="search-icon"><img src="asset/Search.png" width="19"></span>
                     <input type="text" placeholder="Recherche...">
                 </div>
             
-                <div class="sort">
+                <div class="sort" name="sort">
                     <label for="sort-select">Sort by:</label>
                     <select id="sort-select">
                         <option>Newest Arrivals</option>
@@ -42,44 +57,15 @@
             </div>
         </form>
         <div class="cards">
-            <!-- foreach($produits as produit) -->
+            <?php foreach($produits as $produit){?>
             <div class="card">
-                <img src="asset/galaxy Z flip.jpg" alt="" width="300">
-                <p></p>
-                <h3></h3>
-                <!-- if(isset($_POST[''])header('Location')) -->
-                <a href="">Voir Plus</a>
+                <img src="asset/<?php echo ($produit['image']); ?>" alt="<?php echo ($produit['modele']); ?>" height="340">
+                <p><?php echo ($produit['marque']); ?></p>
+                <h3><?php echo ($produit['modele']); ?></h3>
+                <p><?php echo ($produit['prix']); ?></p>
+                <a href="details.php?id=<?= $produit['idPhone']; ?>">Voir Plus</a>
             </div>
-            <div class="card">
-                <img src="asset/iphone.png" alt="" width="300">
-                <p></p>
-                <h3></h3>
-                <a href="">Voir Plus</a>
-            </div>
-            <div class="card">
-                <img src="asset/galaxy A55µ.jpg" alt="" width="300">
-                <p></p>
-                <h3></h3>
-                <a href="">Voir Plus</a>
-            </div> 
-            <div class="card">
-                <img src="asset/galaxy Z flip.jpg" alt="" width="300">
-                <p></p>
-                <h3></h3>
-                <a href="">Voir Plus</a>
-            </div>
-            <div class="card">
-                <img src="asset/iphone.png" alt="" width="300">
-                <p></p>
-                <h3></h3>
-                <a href="">Voir Plus</a>
-            </div>
-            <div class="card">
-                <img src="asset/galaxy A55µ.jpg" alt="" width="300">
-                <p></p>
-                <h3></h3>
-                <a href="">Voir Plus</a>
-            </div> 
+            <?php }?>
         </div>
     </main>
     <footer>

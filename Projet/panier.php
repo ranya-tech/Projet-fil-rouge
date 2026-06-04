@@ -11,8 +11,7 @@
         <img src="asset/Logo.png" alt="Logo">
         <nav>
             <a href="">Accueil</a>
-            <a href="">Categorie</a>
-            <a href="">Accessoires</a>
+            <a href="category.php">Categorie</a>
             <a href=""><img src="asset/shopping-cart.png" alt="Panier" width="16">Panier</a>
             <a href="">Profil</a>
         </nav>

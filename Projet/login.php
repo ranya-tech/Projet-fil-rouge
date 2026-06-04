@@ -12,20 +12,19 @@
         <nav>
             <a href="">Accueil</a>
             <a href="">Categorie</a>
-            <a href="">Accessoires</a>
             <a href=""><img src="asset/panier.png" alt="Panier" width="14">Panier</a>
             <button>Connexion</button>
         </nav>
     </header>
     <main>
         <form method="post">
-            <!-- if connexion afficher form w ila inscrire afiicher form akhra-->
-            <button>Connexion</button><button>S'inscrire</button>
+            <!-- if connexion afficher form w ila inscrire afiicher form akhra (PHP)-->
+            <button class="login">Connexion</button><button class="signup">S'inscrire</button>
             <label for="">Email</label>
             <input type="email" name="email" placeholder="">
             <label for="">Mot de passe</label>
             <input type="password" name="password" placeholder="">
-            <button>Se connecter</button>
+            <button class="connecter">Se connecter</button>
         </form> 
     </main>
     <footer>

@@ -36,7 +36,7 @@ nav button{
     border-radius: 8px;
 }
 
-.filter {
+.filtrer {
     display: flex;
     justify-content: space-between; 
     align-items: center;           
@@ -52,7 +52,7 @@ nav button{
     gap: 15px; 
 }
 
-.btn-category {
+.buttons.btn {
     background-color: #BA1A1A; 
     color: white;
     border: none;
@@ -63,7 +63,7 @@ nav button{
     transition: background-color 0.3s;
 }
 
-.btn-category:hover {
+.btn:hover {
     background-color: #961212; 
 }
 
@@ -135,7 +135,7 @@ nav button{
     border: solid 1px #F6F3F5;
     margin-bottom: 35px;
 }
-.card a{
+.card button{
     text-decoration: none;
     border: solid 1px #000;
     color: #fff;
