@@ -1,18 +1,30 @@
 <?php
 require 'config.php';
-$sql = 'SELECT * FROM Phones';
-$stmt = $pdo->query($sql);
-$produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
-//to affiche phones or accessoires
-if (isset($_GET['filtre'])) {
-    $categorie = $_GET['filtre'];
-    $sql = "SELECT * FROM Phones WHERE categorie = :categorie";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([
-        'categorie' => $categorie
-    ]);
+// Shows all the products
+$sql = "SELECT * FROM Phones";
+$params = [];
+
+// Filter by category
+if (isset($_GET['filtre']) && !empty($_GET['filtre'])) {
+    $sql .= " WHERE categorie = :categorie";
+    $params['categorie'] = $_GET['filtre'];
 }
 
+// Search by model
+if (isset($_GET['search']) && !empty($_GET['search'])) {
+    $sql .= (empty($params) ? " WHERE" : " AND") . " modele LIKE :search";
+    $params['search'] = "%" . $_GET['search'] . "%";
+}
+
+// Sort
+if (!empty($_GET['sort'])) {
+    if ($_GET['sort'] === 'price_asc')  $sql .= " ORDER BY prix ASC";
+    if ($_GET['sort'] === 'price_desc') $sql .= " ORDER BY prix DESC";
+    if ($_GET['sort'] === 'newest')     $sql .= " ORDER BY idPhone DESC";
+}
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute($params);
 $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -35,23 +47,24 @@ $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </header>
     <main>
         <form method="get">
-            <div class="filtrer">
-                <div class="buttons" name="filtre">
-                    <button class="btn" name="phones">Phones</button>
-                    <button class="btn" name="accessoirs">Accessoirs</button>
+            <div class="filter-panel">
+                <div class="buttons">
+                    <button class="btn" name="filtre" value="phones">Phones</button>
+                    <button class="btn" name="filtre" value="accessoirs">Accessoirs</button>
                 </div>
             
-                <div class="search" name="search">
+                <div class="search">
                     <span class="search-icon"><img src="asset/Search.png" width="19"></span>
-                    <input type="text" placeholder="Recherche...">
+                    <input type="text" placeholder="Recherche..." name="search">
                 </div>
             
                 <div class="sort" name="sort">
-                    <label for="sort-select">Sort by:</label>
-                    <select id="sort-select">
-                        <option>Newest Arrivals</option>
-                        <option>Price: Low to High</option>
-                        <option>Price: High to Low</option>
+                    <label for="sort-select">Trier par:</label>
+                    <select id="sort-select" name="sort" onchange="this.form.submit()">
+                        <option value="">--</option>
+                        <option value="newest">Nouveautés</option>
+                        <option value="price_asc">Du moins cher au plus cher</option>
+                        <option value="price_desc">Du plus cher au moins cher</option>
                     </select>
                 </div>
             </div>
@@ -71,9 +84,9 @@ $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <footer>
         <div class="footer-container">
             <img src="asset/Logo.png" alt="Smartphone">
-            <a href="">Accueil</a>
-            <a href="">Categories</a>
-            <a href="">Connexion</a>
+            <a href="Accueil.php">Accueil</a>
+            <a href="category.php">Categories</a>
+            <a href="login.php">Connexion</a>
             <img src="asset/facebook.png" alt="Facebook" width="40">
             <img src="asset/insta.png" alt="Instagram" width="40">
             <img src="asset/twiter.png" alt="Twitter" width="40">

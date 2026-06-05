@@ -107,19 +107,6 @@ form .connecter{
     border-radius: 8px;
     width: 100%;
 }
-.footer-container{
-    background-color: #000;
-    display: flex;
-    justify-content: space-around;
-    align-items: center; 
-    padding: 20px 0;
-}
-.footer-container a{
-    text-decoration: none;
-    color: #fff;
-    font-size: 20px;
-    align-items: center;
-}
 footer p{
     margin: 30px;
     font-size: 20px;

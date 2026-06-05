@@ -36,7 +36,7 @@ nav button{
     border-radius: 8px;
 }
 
-.filtrer {
+.filter-panel {
     display: flex;
     justify-content: space-between; 
     align-items: center;           
@@ -135,7 +135,7 @@ nav button{
     border: solid 1px #F6F3F5;
     margin-bottom: 35px;
 }
-.card button{
+.card a{
     text-decoration: none;
     border: solid 1px #000;
     color: #fff;

@@ -10,9 +10,9 @@
 <header>
         <img src="asset/Logo.png" alt="Logo">
         <nav>
-            <a href="">Accueil</a>
-            <a href="">Categorie</a>
-            <a href=""><img src="asset/panier.png" alt="Panier" width="14">Panier</a>
+            <a href="Accueil.php">Accueil</a>
+            <a href="category.php">Categorie</a>
+            <a href="panier.php"><img src="asset/panier.png" alt="Panier" width="14">Panier</a>
             <button>Connexion</button>
         </nav>
     </header>
@@ -28,15 +28,6 @@
         </form> 
     </main>
     <footer>
-        <div class="footer-container">
-            <img src="asset/Logo.png" alt="Smartphone">
-            <a href="">Accueil</a>
-            <a href="">Categories</a>
-            <a href="">Connexion</a>
-            <img src="asset/facebook.png" alt="Facebook" width="40">
-            <img src="asset/insta.png" alt="Instagram" width="40">
-            <img src="asset/twiter.png" alt="Twitter" width="40">
-        </div>
         <p>&copy; 2026 Smartphone. All rights reserved.</p>
     </footer>
 </body>
