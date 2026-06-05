@@ -52,7 +52,7 @@ nav button{
     gap: 15px; 
 }
 
-.buttons.btn {
+.buttons .btn {
     background-color: #BA1A1A; 
     color: white;
     border: none;
