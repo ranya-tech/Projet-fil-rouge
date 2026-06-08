@@ -20,7 +20,8 @@ CREATE TABLE Phones(
     stockage VARCHAR(20),  
     batterie VARCHAR(50),
     camera VARCHAR(100),
-    image TEXT
+    image TEXT,
+    categorie VARCHAR(50) NOT NULL
 );
 CREATE TABLE Commande(
     idCommande INT AUTO_INCREMENT PRIMARY KEY,
