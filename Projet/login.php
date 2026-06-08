@@ -5,21 +5,23 @@ require 'config.php';
 $current_view = 'login';
 //an array to stock the erreurs
 $error = [];
-//an array to stock a message of successed signup
+//an array to store success messages from signup
 $success = "";
-//To switch between signup and login
+// Handle view switching between Login and Signup forms via POST buttons
 if (isset($_POST['view_signup'])) {
     $current_view = 'signup';
 } elseif (isset($_POST['view_login'])) {
     $current_view = 'login';
 }
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    // LOGIN LOGIC 
     if(isset($_POST['action_login'])){
         $email = $_POST['email'];
         $password = $_POST['password'];
         if(empty($email) || empty($password)){
             $error[] = "Tous les champs sont obligatoire.";
         }else{
+            //searching the user
             $sql = "SELECT * FROM client WHERE email = :email";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([
@@ -31,11 +33,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                     if($u['mot_de_passe'] !== $password){
                         $error[] = "Password incorrect!!";
                     }else{
+                        // Successful login: set session data
                         $_SESSION['user'] =[
                             'id' => $u['idClient'],
                             'name' => $u['nom_complet'],
                             'email' => $u['email']
                         ];
+                        // Redirect to previous page or default catalog page
                         if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER']) && basename(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH)) !== 'login.php') {
                             header('Location: ' . $_SERVER['HTTP_REFERER']);
                         } else {
@@ -50,6 +54,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         }
     }
     if (isset($_POST['action_signup'])){
+        // SIGNUP LOGIC 
+        // Keep view as signup if validation fails
         $current_view = 'signup';
         $name = $_POST['nom_complet'];
         $telephone = $_POST['telephone'];
@@ -58,6 +64,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         if(empty($name) || empty($telephone) || empty($email) || empty($password)){
             $error[] = "Tous les champs sont obligatoire.";
         }else{
+            // Password complexity rules
             if(strlen($password)<8){
                 $error[] = "Password doit contient 8 caractéres.";
             }
@@ -67,6 +74,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             if(!preg_match("/[A-Z]/",$password)){
                 $error[] = "Password doit contient au moins une majuscule.";
             }
+            // If no errors, insert into database
             if(empty($error)){
                 $sql = "INSERT INTO client(nom_complet, telephone, email, mot_de_passe) VALUES(:nom_complet, :telephone, :email, :mot_de_passe)";
                 $stmt = $pdo->prepare($sql);
