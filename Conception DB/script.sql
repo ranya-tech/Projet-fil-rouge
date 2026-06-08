@@ -21,7 +21,7 @@ CREATE TABLE Phones(
     batterie VARCHAR(50),
     camera VARCHAR(100),
     image TEXT,
-    categorie VARCHAR(50) NOT NULL
+    categorie ENUM('phones', 'accessoirs') DEFAULT 'phones'
 );
 CREATE TABLE Commande(
     idCommande INT AUTO_INCREMENT PRIMARY KEY,
