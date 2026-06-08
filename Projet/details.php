@@ -1,6 +1,11 @@
 <?php
 session_start();
+// making the cart if it doesn't exist
+if (!isset($_SESSION['panier'])) {
+    $_SESSION['panier'] = [];
+}
 require 'config.php';
+// Getting the product details from the database
 if(isset($_GET['id'])){
     $id = $_GET['id'];
     $sql = "SELECT * FROM Phones WHERE idPhone = :id";
@@ -10,20 +15,29 @@ if(isset($_GET['id'])){
     ]);
     $phone = $stmt->fetch(PDO:: FETCH_ASSOC);
 }
+//Add product to Cart_Shopping
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    if(!isset($_SESSION['user'])){
+    //Make sure the user is logged in
+    if (!isset($_SESSION['user'])) {
         header('Location: login.php');
         exit;
     }else{
         $idphone = $_POST['phoneId']; 
+        $couleur = $_POST['couleur'];
+        $stockage = $_POST['stockage'];
         $quantite = 1;
-        if (!isset($_SESSION['panier'])) {
-            $_SESSION['panier'] = [];
-        }
-        if (isset($_SESSION['panier'][$idphone])) {
-            $_SESSION['panier'][$idphone] += $quantite;
+        $key = $id . '_' . $couleur . '_' . $stockage;
+        // Update quantity if product already exists in the cart
+        if (isset($_SESSION['panier'][$key])) {
+        $_SESSION['panier'][$key]['quantite'] += $quantite;
         } else {
-            $_SESSION['panier'][$idphone] = $quantite;
+            // Add new product to the cart
+            $_SESSION['panier'][$key] = [
+                'id'       => $id,
+                'couleur'  => $couleur,
+                'stockage' => $stockage,
+                'quantite' => $quantite
+            ];
         }  
     }
 }
@@ -44,6 +58,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             <a href="category.php">Categorie</a>
             <a href="panier.php"><img src="asset/panier.png" alt="Panier" width="16">Panier</a>
             <?php 
+            //Showing user profile or login button based on session
                 if(isset($_SESSION['user'])){
                     $user = $_SESSION['user'];
                     echo "<a href='profil.php' class='profil'>" .$user['name'] . "</a>";
@@ -73,22 +88,22 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 <div class="section">
                     <p class="section-title">Couleur:</p>
                     <div class="color-options">
-                        <span class="color-dot blue selected"></span>
-                        <span class="color-dot silver"></span>
-                        <span class="color-dot black"></span>
+                        <span class="color-dot blue selected"  data-color="blue"></span>
+                        <span class="color-dot silver"         data-color="silver"></span>
+                        <span class="color-dot black"          data-color="black"></span>
                     </div>
                 </div>
                 <div class="section">
                     <p class="section-title">Storage:</p>
                     <div class="storage-options">
-                        <button class="storage-btn">256GB</button>
-                        <button class="storage-btn active">512GB</button>
-                        <button class="storage-btn">1TB</button>
+                        <button class="storage-btn"><?php echo ($phone['stockage'] ?? ''); ?></button>
                     </div>
                 </div>
                 <form action="" method="post">
-                    <input type="hidden" name="phoneId" value="<?=$phone['idPhone']; ?>">
-                    <button class="add">&#128722;Ajouter au panier</button>
+                    <input type="hidden" name="phoneId"  value="<?= $phone['idPhone']; ?>">
+                    <input type="hidden" name="stockage" value="<?= $phone['stockage'] ?? ''; ?>">
+                    <input type="hidden" name="couleur"  value="blue" id="selectedCouleur"> <!-- default = blue -->
+                    <button class="add">&#128722; Ajouter au panier</button>
                 </form>
             </div>
         </div>
@@ -122,5 +137,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         </div>
         <p>&copy; 2026 Smartphone. All rights reserved.</p>
     </footer>
+    <script>
+        document.querySelectorAll('.color-dot').forEach(dot => {
+            dot.addEventListener('click', function () {
+                // remove selected from all
+                document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('selected'));
+                // add selected to clicked
+                this.classList.add('selected');
+                // update hidden input → PHP will receive the right value
+                document.getElementById('selectedCouleur').value = this.dataset.color;
+            });
+        });
+    </script>
 </body>
 </html>
