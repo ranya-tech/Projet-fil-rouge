@@ -106,10 +106,11 @@ nav a:hover {
     margin: 60px auto;
     max-width: 1200px;
 }
+
 .card{
     box-sizing: border-box;
-    padding: 17px;
-    margin: 12px;
+    padding: 14px;
+    margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
