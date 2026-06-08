@@ -1,3 +1,7 @@
+<?php
+require 'config.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +23,7 @@
     <main>
         <form method="post">
             <!-- if connexion afficher form w ila inscrire afiicher form akhra (PHP)-->
-            <button class="login">Connexion</button><button class="signup">S'inscrire</button>
+            <button class="login">Connexion</button><button class="signup" name>S'inscrire</button>
             <label for="">Email</label>
             <input type="email" name="email" placeholder="">
             <label for="">Mot de passe</label>
