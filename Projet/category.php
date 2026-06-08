@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'config.php';
 // Shows all the products
 $sql = "SELECT * FROM Phones";
@@ -13,6 +14,7 @@ if (isset($_GET['filtre']) && !empty($_GET['filtre'])) {
 
 // Search by model
 if (isset($_GET['search']) && !empty($_GET['search'])) {
+    //if empty $parame seacrh with WHERE else add AND to WHERE 
     $sql .= (empty($params) ? " WHERE" : " AND") . " modele LIKE :search";
     $params['search'] = "%" . $_GET['search'] . "%";
 }
@@ -44,6 +46,7 @@ $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <a href="category.php">Categorie</a>
             <a href="panier.php"><img src="asset/panier.png" alt="Panier" width="16">Panier</a>
             <?php 
+            //Showing user profile or login button based on session
                 if(isset($_SESSION['user'])){
                     $user = $_SESSION['user'];
                     echo "<a href='profil.php' class='profil'>" .$user['name'] . "</a>";
@@ -77,6 +80,7 @@ $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             </div>
         </form>
+        <!-- Affichage of all the phones -->
         <div class="cards">
             <?php foreach($produits as $produit){?>
             <div class="card">
