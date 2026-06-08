@@ -32,11 +32,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                         $error[] = "Password incorrect!!";
                     }else{
                         $_SESSION['user'] =[
-                            'id' => $u['id'],
+                            'id' => $u['idClient'],
                             'name' => $u['nom_complet'],
                             'email' => $u['email']
                         ];
-                        if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER']) && !strpos($_SERVER['HTTP_REFERER'], 'login.php')) {
+                        if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER']) && basename(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH)) !== 'login.php') {
                             header('Location: ' . $_SERVER['HTTP_REFERER']);
                         } else {
                             header('Location: category.php');
