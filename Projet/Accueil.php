@@ -76,9 +76,9 @@ $phones = $stmt->fetchAll(PDO:: FETCH_ASSOC);
     <footer>
         <div class="footer-container">
             <img src="asset/Logo.png" alt="Smartphone">
-            <a href="">Accueil</a>
-            <a href="">Categories</a>
-            <a href="">Connexion</a>
+            <a href="Accueil.php">Accueil</a>
+            <a href="category.php">Categories</a>
+            <a href="login.php">Connexion</a>
             <img src="asset/facebook.png" alt="Facebook" width="40">
             <img src="asset/insta.png" alt="Instagram" width="40">
             <img src="asset/twiter.png" alt="Twitter" width="40">
