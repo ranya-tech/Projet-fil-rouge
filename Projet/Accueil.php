@@ -1,6 +1,8 @@
 <?php
 require 'config.php';
-$sql = ""
+$sql = "SELECT * FROM Phones LIMIT 3";
+$stmt = $pdo->query($sql);
+$phones = $stmt->fetchAll(PDO:: FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +10,7 @@ $sql = ""
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style_acc.css">
+    <link rel="stylesheet" href="CSS/style_acc.css">
 </head>
 <body>
     <header>
@@ -17,18 +19,24 @@ $sql = ""
             <nav>
                 <a href="Accueil.php">Accueil</a>
                 <a href="category.php">Categorie</a>
-                <a href="panier.php"><img src="asset/panier.png" alt="Panier" width="14"> Panier</a>
-                <button>Connexion</button>
-            </nav>
+                <a href="panier.php"><img src="asset/panier.png" alt="Panier" width="16">Panier</a>
+                <?php 
+                    if(isset($_SESSION['user'])){
+                        $user = $_SESSION['user'];
+                        echo "<a href='profil.php' class='profil'>" .$user['name'] . "</a>";
+                    }else{
+                        echo "<a href='login.php' class='profil'>Connecter</a>";
+                    }
+                ?>
+        </nav>
         </div>
         <div class="hero">
             <h1>Trouver le Smartphones Parfait!</h1>
-            <p>Les millieurs modeles aux millieurs prix!</p>
-            <form method="get" class="buttons">
-                <button class="promo">Promotions</button>
-                <button class="nouveau">Nouveautés</button>
+            <p>Les millieurs modèles aux meilleurs prix!</p>
+            <form action="category.php" method="get" class="buttons">
+                <button type="submit" name="sort" value="price_asc" class="promo">Promotions</button>
+                <button type="submit" name="sort" value="newest" class="nouveau">Nouveautés</button>
             </form>
-            
         </div>
     </header>
     <main>
@@ -47,26 +55,16 @@ $sql = ""
             </div> 
         </div>
         <div class="most_selling">
-            <!-- foreach code php -->
             <p>Les Plus Vendus</p>
+            <?php foreach($phones as $phone){?>
             <div class="card">
-                <img src="asset/galaxy Z flip.jpg" alt="" width="300">
-                <p></p>
-                <h3></h3>
-                <a href="">Voir Plus</a>
+                <img src="asset/<?php echo ($phone['image']); ?>" alt="<?php echo ($phone['modele']); ?>" width="300">
+                <p><?php echo ($phone['marque']); ?></p>
+                <h3><?php echo ($phone['modele']); ?></h3>
+                <p><?php echo ($phone['prix']); ?></p>
+                <a href="details.php?id=<?= $phone['idPhone']; ?>">Voir Plus</a>
             </div>
-            <div class="card">
-                <img src="asset/iphone.png" alt="" width="300">
-                <p></p>
-                <h3></h3>
-                <a href="">Voir Plus</a>
-            </div>
-            <div class="card">
-                <img src="asset/galaxy A55µ.jpg" alt="" width="300">
-                <p></p>
-                <h3></h3>
-                <a href="">Voir Plus</a>
-            </div> 
+            <?php }?>
         </div>
     </main>
     <footer>
