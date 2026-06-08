@@ -25,16 +25,22 @@ nav a:hover {
     text-decoration: underline #F6F3F5;
     color: #BA1A1A;
 }
-nav button{
+.profil{
     margin-left: 10px;
     color: #fff;
     background-color: #BA1A1A;
+    text-align: center;
     text-decoration: none;  
     border: solid 1px #BA1A1A; 
     padding: 8px 16px;     
     border-radius: 8px;
 }
-
+.profil:hover{
+    text-decoration: none;
+    color: #F6F3F5;
+    background-color: #961212;
+    transform: translateY(-2px);
+}
 .filter-panel {
     display: flex;
     justify-content: space-between; 
