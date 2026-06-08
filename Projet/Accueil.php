@@ -1,5 +1,7 @@
 <?php
+session_start();
 require 'config.php';
+//To affiche just three phones
 $sql = "SELECT * FROM Phones LIMIT 3";
 $stmt = $pdo->query($sql);
 $phones = $stmt->fetchAll(PDO:: FETCH_ASSOC);
@@ -21,6 +23,7 @@ $phones = $stmt->fetchAll(PDO:: FETCH_ASSOC);
                 <a href="category.php">Categorie</a>
                 <a href="panier.php"><img src="asset/panier.png" alt="Panier" width="16">Panier</a>
                 <?php 
+                    //Showing user profile or login button based on session
                     if(isset($_SESSION['user'])){
                         $user = $_SESSION['user'];
                         echo "<a href='profil.php' class='profil'>" .$user['name'] . "</a>";
@@ -33,6 +36,7 @@ $phones = $stmt->fetchAll(PDO:: FETCH_ASSOC);
         <div class="hero">
             <h1>Trouver le Smartphones Parfait!</h1>
             <p>Les millieurs modèles aux meilleurs prix!</p>
+<!-- To go to the category page and get filtered by the newest or the promotion -->
             <form action="category.php" method="get" class="buttons">
                 <button type="submit" name="sort" value="price_asc" class="promo">Promotions</button>
                 <button type="submit" name="sort" value="newest" class="nouveau">Nouveautés</button>
@@ -42,20 +46,22 @@ $phones = $stmt->fetchAll(PDO:: FETCH_ASSOC);
     <main>
         <div class="event">
             <div class="card">
+                <!-- To go to the category page and get filtered by the newest or the promotion or the accessoires-->
                 <img src="asset/modele.png" alt="" width="300">
-                <a href="category.php">Voir Plus</a>
+                <a href="category.php?sort=newest">Voir Plus</a>
             </div>
             <div class="card">
                 <img src="asset/promo.jpg" alt="" width="300">
-                <a href="category.php">Voir Plus</a>
+                <a href="category.php?sort=price_asc">Voir Plus</a>
             </div>
             <div class="card">
                 <img src="asset/accessoires.jpg" alt="" width="300">
-                <a href="category.php">Voir Plus</a>
+                <a href="category.php?filtre=accessoirs">Voir Plus</a>
             </div> 
         </div>
         <div class="most_selling">
             <p>Les Plus Vendus</p>
+            <!-- Affichage of the three phones from the request above -->
             <?php foreach($phones as $phone){?>
             <div class="card">
                 <img src="asset/<?php echo ($phone['image']); ?>" alt="<?php echo ($phone['modele']); ?>" width="300">
