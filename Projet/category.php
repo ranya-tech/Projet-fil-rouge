@@ -2,6 +2,7 @@
 require 'config.php';
 // Shows all the products
 $sql = "SELECT * FROM Phones";
+// Array to stock the values that come from the filtre
 $params = [];
 
 // Filter by category
@@ -22,7 +23,7 @@ if (!empty($_GET['sort'])) {
     if ($_GET['sort'] === 'price_desc') $sql .= " ORDER BY prix DESC";
     if ($_GET['sort'] === 'newest')     $sql .= " ORDER BY idPhone DESC";
 }
-
+// Prepare & Executation de request $sql
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -33,7 +34,7 @@ $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style_cat.css">
+    <link rel="stylesheet" href="CSS/style_cat.css">
 </head>
 <body>
     <header>
@@ -41,8 +42,15 @@ $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <nav>
             <a href="Accueil.php">Accueil</a>
             <a href="category.php">Categorie</a>
-            <a href="panier.php"><img src="asset/panier.png" alt="Panier" width="14">Panier</a>
-            <button>Connexion</button>
+            <a href="panier.php"><img src="asset/panier.png" alt="Panier" width="16">Panier</a>
+            <?php 
+                if(isset($_SESSION['user'])){
+                    $user = $_SESSION['user'];
+                    echo "<a href='profil.php' class='profil'>" .$user['name'] . "</a>";
+                }else{
+                    echo "<a href='login.php' class='profil'>Connecter</a>";
+                }
+            ?>
         </nav>
     </header>
     <main>
