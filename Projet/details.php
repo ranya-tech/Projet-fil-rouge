@@ -33,12 +33,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         } else {
             // Add new product to the cart
             $_SESSION['panier'][$key] = [
-                'id'       => $id,
+                'id'       => $idphone,
                 'couleur'  => $couleur,
                 'stockage' => $stockage,
                 'quantite' => $quantite
             ];
         }  
+        echo "<script>alert('Produit ajouté avec succès')</script>";
     }
 }
 ?>

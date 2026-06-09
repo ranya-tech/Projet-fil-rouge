@@ -1,0 +1,293 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f3f4f6;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ===== HEADER ===== */
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 12px 24px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+header img {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    object-fit: cover;
+}
+
+header nav {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+header nav a {
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827;
+    border: 1.5px solid #d1d5db;
+    background-color: transparent;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+header nav a:hover {
+    background-color: #f3f4f6;
+}
+
+header nav a[href="admin.php"] {
+    background-color: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+}
+
+/* ===== MAIN LAYOUT ===== */
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 24px;
+    padding: 24px;
+}
+
+/* Commandes spans full width */
+main > div:last-child {
+    grid-column: 1 / -1;
+}
+
+/* ===== SHARED SECTION BOX ===== */
+
+main > div {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    padding: 24px;
+    position: relative;
+}
+
+main > div > h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 16px;
+}
+
+/* ===== PRODUITS — "Voir plus" link ===== */
+
+main > div:first-child > a[href="produits.php"] {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+main > div:first-child > a[href="produits.php"]:hover {
+    text-decoration: underline;
+}
+
+/* ===== CARD (Produits & Stock Alerts) ===== */
+
+.card {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    grid-template-rows: auto auto auto;
+    align-items: start;
+    gap: 0 14px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 14px;
+}
+
+.card img {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    width: 100px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* modele h3 */
+.card > h3 {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+}
+
+/* marque — first p */
+.card > p:first-of-type {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 12px;
+    color: #9ca3af;
+    margin: 0;
+}
+
+/* prix — last p */
+.card > p:last-of-type {
+    grid-column: 3;
+    grid-row: 1;
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Modifier link */
+.card > a[href*="modifier"] {
+    grid-column: 2;
+    grid-row: 3;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    color: #6b7280;
+    padding-top: 10px;
+    align-self: end;
+}
+
+/* Supprimer link */
+.card > a[href*="remove"] {
+    grid-column: 3;
+    grid-row: 3;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    color: #ef4444;
+    padding-top: 10px;
+    align-self: end;
+}
+
+.card > a[href*="modifier"]:hover { color: #374151; }
+.card > a[href*="remove"]:hover   { color: #b91c1c; }
+
+/* ===== STOCK ALERTS — stock count in red ===== */
+
+main > div:nth-child(2) .card > p:last-of-type {
+    grid-column: 2 / 4;
+    grid-row: 3;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ef4444;
+    padding-top: 8px;
+    align-self: end;
+}
+
+/* hide Modifier/Supprimer links in Stock Alerts */
+main > div:nth-child(2) .card > a {
+    display: none;
+}
+
+/* ===== COMMANDES TABLE ===== */
+
+main > div:last-child > h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+main > div:last-child table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+main > div:last-child thead tr {
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+main > div:last-child thead th {
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    color: #9ca3af;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+main > div:last-child tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+main > div:last-child tbody tr:last-child {
+    border-bottom: none;
+}
+
+main > div:last-child tbody td {
+    padding: 14px 16px;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 12px;
+}
+
+/* CLIENT */
+main > div:last-child tbody td:nth-child(2) {
+    font-weight: 700;
+    color: #111827;
+}
+
+/* DATE */
+main > div:last-child tbody td:nth-child(4) {
+    font-weight: 600;
+    color: #111827;
+}
+
+/* TOTAL */
+main > div:last-child tbody td:nth-child(5) {
+    font-weight: 600;
+    color: #111827;
+}
+
+/* ===== STATUS BADGES ===== */
+
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.badge-pending {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.badge-shipped {
+    background-color: #dbeafe;
+    color: #2563eb;
+}
+
+.badge-delivered {
+    background-color: #d1fae5;
+    color: #059669;
+}
