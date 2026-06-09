@@ -25,9 +25,19 @@
     </header>
     <main>
         <a href="category.html">Retour</a>
+        
     </main>
     <footer>
-
+        <div class="footer-container">
+            <img src="asset/Logo.png" alt="Smartphone">
+            <a href="">Accueil</a>
+            <a href="">Categories</a>
+            <a href="">Connexion</a>
+            <img src="asset/facebook.png" alt="Facebook" width="40">
+            <img src="asset/insta.png" alt="Instagram" width="40">
+            <img src="asset/twiter.png" alt="Twitter" width="40">
+        </div>
+        <p>&copy; 2026 Smartphone. All rights reserved.</p>
     </footer>
 </body>
 </html>
