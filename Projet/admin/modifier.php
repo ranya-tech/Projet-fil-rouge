@@ -87,11 +87,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="CSS/ajouter.css">
+    <link rel="stylesheet" href="../CSS/ajouter.css">
 </head>
 <body>
     <header>
-        <img src="asset/admin.png" alt="Admin">
+        <img src="../asset/admin.png" alt="Admin">
         <nav>
             <a href="admin.php">Dashboard</a>
             <a href="produits.php">Produits</a>

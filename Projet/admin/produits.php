@@ -12,12 +12,12 @@ $phones = $stmt->fetchAll(PDO:: FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="CSS/style_admin.css">
+    <link rel="stylesheet" href="../CSS/style_admin.css">
 
 </head>
 <body>
     <header>
-        <img src="asset/admin.png" alt="Admin">
+        <img src="../asset/admin.png" alt="Admin">
         <nav>
             <a href="admin.php">Dashboard</a>
             <a href="produits.php">Produits</a>
@@ -28,7 +28,7 @@ $phones = $stmt->fetchAll(PDO:: FETCH_ASSOC);
         <div class="cards">
             <?php foreach($phones as $phone): ?>
             <div class="card">
-                <img src="asset/<?= $phone['image'] ?>" alt="<?= $phone['modele'] ?>">
+                <img src="../asset/<?= $phone['image'] ?>" alt="<?= $phone['modele'] ?>">
                 <div class="card-info">
                     <p class="card-marque"><?= $phone['marque'] ?></p>
                     <h3 class="card-modele"><?= $phone['modele'] ?></h3>

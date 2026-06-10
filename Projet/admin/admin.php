@@ -43,11 +43,11 @@ $commandes = $stmt2->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="CSS/style_admin.css">
+    <link rel="stylesheet" href="../CSS/style_admin.css">
 </head>
 <body>
     <header>
-        <img src="asset/admin.png" alt="Admin">
+        <img src="../asset/admin.png" alt="Admin">
         <nav>
             <a href="admin.php">Dashboard</a>
             <a href="produits.php">Produits</a>
@@ -60,7 +60,7 @@ $commandes = $stmt2->fetchAll(PDO::FETCH_ASSOC);
             <a href="produits.php">Voir plus -></a>
             <?php foreach($phones as $phone){?>
             <div class="card">
-                <img src="asset/<?php echo ($phone['image']); ?>" alt="<?php echo ($phone['modele']); ?>" width="300">
+                <img src="../asset/<?php echo ($phone['image']); ?>" alt="<?php echo ($phone['modele']); ?>" width="300">
                 <p><?php echo ($phone['marque']); ?></p>
                 <h3><?php echo ($phone['modele']); ?></h3>
                 <p><?php echo ($phone['prix']); ?></p>
@@ -72,7 +72,7 @@ $commandes = $stmt2->fetchAll(PDO::FETCH_ASSOC);
             <h3>Stock Alerts:</h3>
             <?php foreach($phones as $phone){ if($phone['stock'] <=10) {?>
             <div class="card">
-                <img src="asset/<?php echo ($phone['image']); ?>" alt="<?php echo ($phone['modele']); ?>" width="300">
+                <img src="../asset/<?php echo ($phone['image']); ?>" alt="<?php echo ($phone['modele']); ?>" width="300">
                 <p><?php echo ($phone['marque']); ?></p>
                 <h3><?php echo ($phone['modele']); ?></h3>
                 <p><?php echo ($phone['prix']); ?></p>
