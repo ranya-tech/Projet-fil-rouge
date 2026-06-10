@@ -183,7 +183,7 @@ $total_panier = 0;
                 </form>
             </div>
 
-            <!--  Order summary -->
+            <!--  Reçu -->
             <div class="commande-box">
                 <h3>Votre Commande</h3>
                 <div class="commande-items">
