@@ -40,3 +40,182 @@ nav a:hover {
     background-color: #961212;
     transform: translateY(-2px);
 }
+
+/* MAIN */
+main { max-width: 700px; margin: 40px auto; padding: 0 20px; display: flex; flex-direction: column; gap: 24px; }
+
+/* PROFILE CARD */
+.profile-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.profile-avatar img {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e5e7eb;
+}
+.profile-name h2 { font-size: 24px; font-weight: 700; }
+.profile-card a{color: #BA1A1A; text-decoration: none; padding: 10px 38px; border-radius: 10px; transition: 0.3s;}
+/* INFO CARD */
+.info-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 28px;
+}
+.info-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.info-card-header h3 { font-size: 18px; font-weight: 700; }
+.edit-btn { font-size: 13px; color: #6b7280; text-decoration: none; }
+.edit-btn:hover { color: #111827; }
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+.info-field label {
+    display: block;
+    font-size: 11px;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+}
+.info-value {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #374151;
+}
+
+/* ORDERS CARD */
+.orders-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 28px;
+}
+.orders-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.orders-card-header h3 { font-size: 18px; font-weight: 700; }
+.view-all { font-size: 13px; color: #6b7280; text-decoration: none; }
+.view-all:hover { color: #111827; }
+
+.orders-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.orders-table thead tr { border-bottom: 1px solid #e5e7eb; }
+.orders-table th {
+    text-align: left;
+    font-size: 11px;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 10px 12px;
+}
+.orders-table td { padding: 14px 12px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+
+/* BADGES */
+.badge { padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 500; }
+.badge-livree   { background: #dcfce7; color: #16a34a; }
+.badge-expediee { background: #dbeafe; color: #2563eb; }
+.badge-attente  { background: #fef9c3; color: #ca8a04; }
+
+.details-btn {
+    padding: 6px 16px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #374151;
+    text-decoration: none;
+    transition: 0.15s;
+}
+.details-btn:hover { background: #f3f4f6; }
+/* EDIT INPUTS */
+.info-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #374151;
+    background: #fff;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.info-input:focus { border-color: #dc2626; }
+
+/* EDIT ACTIONS */
+.edit-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.btn-cancel {
+    padding: 10px 22px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #fff;
+    color: #374151;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.15s;
+}
+.btn-cancel:hover { background: #f3f4f6; }
+
+.btn-save {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 8px;
+    background: #dc2626;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.15s;
+}
+.btn-save:hover { background: #b91c1c; }
+
+/* EDIT BTN (header) */
+.edit-btn {
+    background: none;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 13px;
+    color: #6b7280;
+    cursor: pointer;
+    transition: 0.15s;
+}
+.edit-btn:hover { background: #f3f4f6; color: #111827; }
+
+/* SUCCESS ALERT */
+.alert-success {
+    background: #dcfce7;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: 500;
+}
+/* FOOTER */
+footer { text-align: center; padding: 30px; color: #9ca3af; font-size: 14px; }
