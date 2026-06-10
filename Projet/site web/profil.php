@@ -94,7 +94,7 @@ $commandes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <?php
             if($client['role'] == 'admin'){
-                echo "<a href='admin/admin.php'> Dasboard</a>";
+                echo "<a href='../admin/admin.php'> Dasboard</a>";
             }
         ?>
     </div>

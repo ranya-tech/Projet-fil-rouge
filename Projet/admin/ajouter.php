@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_FILES['image']) && $_FILES['image']['error'] === 0) {
             $ext   = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
             $image = uniqid('phone_') . '.' . $ext;
-            move_uploaded_file($_FILES['image']['tmp_name'], 'asset/' . $image);
+            move_uploaded_file($_FILES['image']['tmp_name'], '../asset/' . $image);
         }
 
         $stmt = $pdo->prepare("
@@ -62,7 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <nav>
             <a href="admin.php">Dashboard</a>
             <a href="produits.php">Produits</a>
-            <a href="#">Commandes</a>
         </nav>
     </header>
     <main>
