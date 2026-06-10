@@ -51,7 +51,7 @@ $commandes = $stmt2->fetchAll(PDO::FETCH_ASSOC);
         <nav>
             <a href="admin.php">Dashboard</a>
             <a href="produits.php">Produits</a>
-            <a href="#">Commandes</a>
+            <a href="commandes.php">Commandes</a>
         </nav>
     </header>
     <main>
@@ -94,7 +94,13 @@ $commandes = $stmt2->fetchAll(PDO::FETCH_ASSOC);
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($commandes as $commande): ?>
+                    <?php foreach($commandes as $commande):
+                                $class = match($commande['statut']) {
+                                    'Livrée'   => 'badge-livree',
+                                    'Expédiée' => 'badge-expediee',
+                                    default    => 'badge-attente'
+                                };
+                        ?>
                     <tr>
                         <td><?= $commande['idCommande'] ?></td>
                         <td><?= htmlspecialchars($commande['client']) ?></td>

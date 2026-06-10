@@ -2,7 +2,7 @@
 session_start(); 
 require '../config.php';
 
-// 1. Remove Item from Cart
+// Remove Item from Cart
 if (isset($_GET['remove'])) {
     $key_to_remove = $_GET['remove'];
     unset($_SESSION['panier'][$key_to_remove]);
@@ -10,7 +10,7 @@ if (isset($_GET['remove'])) {
     exit;
 }
 
-// 2. Optional: Handle Quantity Changes (Plus/Minus Buttons)
+// Increase or decrease the quantite of fthe products
 if (isset($_GET['action']) && isset($_GET['key'])) {
     $key = $_GET['key'];
     if (isset($_SESSION['panier'][$key])) {
@@ -27,6 +27,7 @@ if (isset($_GET['action']) && isset($_GET['key'])) {
     header('Location: panier.php');
     exit;
 }
+
 if($_SERVER['REQUEST_METHOD']==='POST'){
     $nom = $_POST['nom'];
     $telephone = $_POST['telephone'];
@@ -36,15 +37,15 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         echo "Veuillez remplir tous les champs.";
     }else{
         
-            // 1. Get the logged-in client's ID
+            // Get the logged-in client's ID
             $idClient = $_SESSION['user']['id'];
 
-            // 2. Insert into Commande
+            // Insert into Commande
             $stmt = $pdo->prepare("INSERT INTO Commande (idClient) VALUES (:idClient)");
             $stmt->execute(['idClient' => $idClient]);
             $idCommande = $pdo->lastInsertId();
 
-            // 3. Insert into Livraison (estimated delivery: 5 days from now)
+            // Insert into Livraison (estimated delivery: 5 days from now)
             $stmt = $pdo->prepare("INSERT INTO Livraison (adresse, destinataire, dateLivraison, idCommande) 
                                 VALUES (:adresse, :destinataire, :dateLivraison, :idCommande)");
             $stmt->execute([
@@ -53,7 +54,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
                 'dateLivraison' => date('Y-m-d H:i:s', strtotime('+5 days')),
                 'idCommande'    => $idCommande
             ]);
-            // 4. Insert each cart item into ProduitCmd
+            // Insert each cart item into ProduitCmd
             $stmt = $pdo->prepare("INSERT INTO ProduitCmd (idPhones, idCommande, quantite, couleur, stockage) 
                                 VALUES (:idPhone, :idCommande, :quantite, :couleur, :stockage)");
             foreach($_SESSION['panier'] as $item) {
@@ -66,16 +67,16 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
                 ]);
             }
 
-            // 5. Clear the cart
+            // Clear the cart
             unset($_SESSION['panier']);
 
-            // 6. Redirect to a confirmation page
+            // Redirect to a confirmation page
             header('Location: confirm.php?commande=' . $idCommande);
             exit;
 
     }
 }
-
+// A variable to stock the total of the commande
 $total_panier = 0;
 ?>
 <!DOCTYPE html>
@@ -113,7 +114,7 @@ $total_panier = 0;
 
         <div class="panier-wrapper">
 
-            <!-- LEFT: cart items -->
+            <!-- Cart items -->
             <div class="cart-items-col">
                 <?php foreach ($_SESSION['panier'] as $key => $item):
                     $sql  = "SELECT * FROM Phones WHERE idPhone = :id";
@@ -131,27 +132,27 @@ $total_panier = 0;
                         <h4><?= $phone['marque'] . ' ' . $phone['modele'] ?></h4>
                         <p><?= $item['couleur'] ?> | <?= $item['stockage'] ?></p>
                         <div class="qty-row">
-                            <a href="panier.php?action=decrease&key=<?= urlencode($key) ?>" class="qty-btn">−</a>
+                            <a href="panier.php?action=decrease&key=<?= $key ?>" class="qty-btn">−</a>
                             <span class="qty-value"><?= $item['quantite'] ?></span>
-                            <a href="panier.php?action=increase&key=<?= urlencode($key) ?>" class="qty-btn">+</a>
+                            <a href="panier.php?action=increase&key=<?= $key ?>" class="qty-btn">+</a>
                         </div>
                     </div>
 
                     <div class="item-right">
-                        <span class="item-price"><?= number_format($phone['prix'], 0, '.', ',') ?>DH</span>
-                        <a href="panier.php?remove=<?= urlencode($key) ?>" class="remove-btn"
+                        <span class="item-price"><?= $phone['prix'] ?>DH</span>
+                        <a href="panier.php?remove=<?= $key ?>" class="remove-btn"
                         onclick="return confirm('Supprimer cet article ?')"> SUPPRIMER</a>
                     </div>
                 </div>
                 <?php endif; endforeach; ?>
             </div>
 
-            <!-- RIGHT: order summary -->
+            <!-- Commande summary -->
             <div class="summary-box">
                 <h3>Résumé de la commande</h3>
                 <div class="summary-row">
                     <span>Sous-total</span>
-                    <span><?= number_format($total_panier, 0, '.', ',') ?></span>
+                    <span><?= $total_panier ?></span>
                 </div>
                 <div class="summary-row">
                     <span>Livraison</span>
@@ -160,13 +161,13 @@ $total_panier = 0;
                 <hr class="summary-divider">
                 <div class="summary-total">
                     <span>Total</span>
-                    <span class="total-price"><?= number_format($total_panier, 0, '.', ',') ?>DH</span>
+                    <span class="total-price"><?= $total_panier ?>DH</span>
                 </div>
                 <a href="#livraison" class="btn-livraison">Procéder au livraison →</a>            
             </div>
         </div>
         <div class="livraison-wrapper" id="livraison">
-            <!-- LEFT: Delivery form -->
+            <!-- Delivery form -->
             <div class="livraison-form-box">
                 <h3>Livraison Information:</h3>
                 <form method="post">
@@ -182,7 +183,7 @@ $total_panier = 0;
                 </form>
             </div>
 
-            <!-- RIGHT: Order summary -->
+            <!--  Order summary -->
             <div class="commande-box">
                 <h3>Votre Commande</h3>
                 <div class="commande-items">

@@ -22,6 +22,7 @@ $phones = $stmt->fetchAll(PDO:: FETCH_ASSOC);
             <a href="admin.php">Dashboard</a>
             <a href="produits.php">Produits</a>
             <a href="ajouter.php">Ajouter</a>
+            <a href="commandes.php">Commandes</a>
         </nav>
     </header>
     <main>

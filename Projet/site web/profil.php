@@ -1,7 +1,7 @@
 <?php
 session_start();
 require '../config.php';
-
+//  Checking the user is connected
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
     exit;
@@ -10,7 +10,7 @@ if (!isset($_SESSION['user'])) {
 $user = $_SESSION['user'];
 $idClient = $user['id'];
 
-// personelle information update
+// Updating the personnel information
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_profil'])) {
     $nom       = trim($_POST['nom_complet']);
     $email     = trim($_POST['email']);
@@ -31,12 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_profil'])) {
     $success = "Profil mis à jour avec succès.";
 }
 
-// Fetch latest client info
+// Fetch The client by his 
 $stmt = $pdo->prepare("SELECT * FROM Client WHERE idClient = :id");
 $stmt->execute(['id' => $idClient]);
 $client = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Fetch last delivery address
+// Fetch the adresse livraison of the client
 $stmtAddr = $pdo->prepare("
     SELECT l.adresse FROM Livraison l
     JOIN Commande c ON c.idCommande = l.idCommande
@@ -46,7 +46,7 @@ $stmtAddr = $pdo->prepare("
 $stmtAddr->execute(['id' => $idClient]);
 $lastAddr = $stmtAddr->fetchColumn();
 
-// Fetch order history
+// Fetch the Commandes history
 $stmt = $pdo->prepare("
     SELECT c.idCommande, c.dateCmd, c.statut,
            SUM(p.prix * pc.quantite) AS total
@@ -93,12 +93,13 @@ $commandes = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <h2><?= htmlspecialchars($client['nom_complet']) ?></h2>
         </div>
         <?php
+        //Checking the role of the user
             if($client['role'] == 'admin'){
                 echo "<a href='../admin/admin.php'> Dasboard</a>";
             }
         ?>
     </div>
-
+    <!-- Fetch the message after editing the info personelle -->
     <?php if (isset($success)): ?>
         <div class="alert-success"><?= $success ?></div>
     <?php endif; ?>
@@ -166,7 +167,7 @@ $commandes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 
-    <!-- Order History -->
+    <!-- Commandes History -->
     <div class="orders-card">
         <div class="orders-card-header">
             <h3>Historique des commandes</h3>
@@ -222,6 +223,7 @@ $commandes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </footer>
 
 <script>
+    //A function to switch the style depends on the edit or view mode
     function toggleEdit() {
         const viewMode = document.getElementById('view-mode');
         const editMode = document.getElementById('edit-mode');
@@ -238,7 +240,7 @@ $commandes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
     }
 
-    // If update was successful, stay in view mode
+    // If update was successful, return view mode
     <?php if (isset($success)): ?>
         document.getElementById('view-mode').style.display = 'block';
         document.getElementById('edit-mode').style.display = 'none';

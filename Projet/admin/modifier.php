@@ -95,6 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <nav>
             <a href="admin.php">Dashboard</a>
             <a href="produits.php">Produits</a>
+            <a href="commandes.php">Commandes</a>
         </nav>
     </header>
     <main>
