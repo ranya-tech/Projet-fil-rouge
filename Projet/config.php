@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$dbname = 'smartphone';
+$dbname = 'smartphone_store';
 $username = 'root';
 $password = '';
 try{
