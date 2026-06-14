@@ -40,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 'quantite' => $quantite
             ];
         }  
-        echo "<h2>Produit ajouté avec succès</h2>";
+        echo "<script>alert('Produit ajouté avec succès');</script>";
     }
 }
 ?>
