@@ -19,7 +19,6 @@ if(isset($_GET['id'])){
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     //Make sure the user is logged in
     if (!isset($_SESSION['user'])) {
-        // تخزين الصفحة الحالية في الجلسة
         $_SESSION['redirect_to'] = $_SERVER['REQUEST_URI'];
         header('Location: login.php');
         exit;
