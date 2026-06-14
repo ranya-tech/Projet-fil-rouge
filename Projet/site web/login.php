@@ -30,7 +30,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $user = $stmt->fetchAll(PDO :: FETCH_ASSOC);
             if($user){
                 foreach($user as $u){
-                    if($u['mot_de_passe'] !== $password){
+                    // Verify the provided password against the hashed password
+                    if(!password_verify($password, $u['mot_de_passe'])){
                         $error[] = "Password incorrect!!";
                     }else{
                         // Successful login: set session data
@@ -40,8 +41,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                             'email' => $u['email']
                         ];
                         // Redirect to previous page or default catalog page
-                        if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER']) && basename(parse_url($_SERVER['HTTP_REFERER'], PHP_URL_PATH)) !== 'login.php') {
-                            header('Location: ' . $_SERVER['HTTP_REFERER']);
+                        if (isset($_SESSION['redirect_to'])) {
+                            $redirect = $_SESSION['redirect_to'];
+                            unset($_SESSION['redirect_to']); 
+                            header('Location: ' . $redirect);
                         } else {
                             header('Location: category.php');
                         }
@@ -76,13 +79,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             }
             // If no errors, insert into database
             if(empty($error)){
+                // Hash the password for security
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
                 $sql = "INSERT INTO client(nom_complet, telephone, email, mot_de_passe) VALUES(:nom_complet, :telephone, :email, :mot_de_passe)";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute([
                     'nom_complet' => $name,
                     'telephone' => $telephone,
                     'email' => $email,
-                    'mot_de_passe' => $password
+                    'mot_de_passe' => $hashedPassword
                 ]);
                 $current_view = 'login';
                 $success = "Inscription réussie ! Connectez-vous.";

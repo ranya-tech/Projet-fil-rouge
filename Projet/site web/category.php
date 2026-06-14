@@ -8,7 +8,7 @@ $params = [];
 
 // Filter by category
 if (isset($_GET['filtre']) && !empty($_GET['filtre'])) {
-    $sql .= " WHERE categorie = :categorie";
+    $sql .= (empty($params) ? " WHERE" : " AND") ." categorie = :categorie";
     $params['categorie'] = $_GET['filtre'];
 }
 
