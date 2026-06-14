@@ -17,14 +17,13 @@ nav{
 nav a {
     color: #fff;
     text-decoration: none;  
-    border: solid 1px #fff; 
     padding: 10px 38px;     
     border-radius: 10px;     
     transition: 0.3s;       
 }
 nav a:hover {
-    background-color: #fff;
-    color: #000;
+    color: #BA1A1A;
+    text-decoration: underline;
 }
 nav button{
     margin-left: 10px;
