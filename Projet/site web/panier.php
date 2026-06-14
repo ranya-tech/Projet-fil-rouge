@@ -57,6 +57,9 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
             // Insert each cart item into ProduitCmd
             $stmt = $pdo->prepare("INSERT INTO ProduitCmd (idPhones, idCommande, quantite, couleur, stockage) 
                                 VALUES (:idPhone, :idCommande, :quantite, :couleur, :stockage)");
+
+            $stmt_update= $pdo->prepare("UPDATE Phones SET stock = stock - :quantite WHERE idPhone = :id");
+
             foreach($_SESSION['panier'] as $item) {
                 $stmt->execute([
                     'idPhone'    => $item['id'],
@@ -65,8 +68,12 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
                     'couleur'    => $item['couleur'],
                     'stockage'   => $item['stockage']
                 ]);
+                $stmt_update->execute([
+                    'quantite' => $item['quantite'],
+                    'id'       => $item['id']
+                ]);
             }
-
+            
             // Clear the cart
             unset($_SESSION['panier']);
 
